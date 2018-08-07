@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Login';
+import CreateUser from './CreateUser';
 import Header from './Header';
 
 const My404 = () => {
