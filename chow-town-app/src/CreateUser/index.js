@@ -14,16 +14,37 @@ class CreateUser extends Component {
       state: '',
       zip: '',
       phone: '',
-      email: '',
+      email: ''
     }
   } 
   updateUser = (e) => {
     this.setState({[e.currentTarget.name]: e.currentTarget.value});
   }
 
+  addUser = async (e) => {
+    e.preventDefault();
+    try{
+
+      const CreateUser = await fetch('http://localhost:9000/auth/register', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify(this.state),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const parsedResponse = await CreateUser.json();
+      console.log(parsedResponse, "===================")
+      
+      // this.setState({users: [...this.state.users, parsedResponse.data]});
+    }catch (err){
+      console.log(err, 'error at addUser------')
+    }
+
+  }
   render(){
     return(
-      <form onSubmit={this.props.addUser.bind(null, this.state)}>
+      <form onSubmit={this.addUser}>
         <label>
           User:
           <input className="username" type='text' name='username' onChange={this.updateUser} placeholder='username' />

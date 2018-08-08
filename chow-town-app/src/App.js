@@ -3,9 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Login';
-import CreateUser from './CreateUser';
 import Header from './Header';
-
+import MainContainer from './MainContainer';
+import RestaurantContainer from './RestaurantContainer';
+import CreateUser from './CreateUser'
 const My404 = () => {
   return(
     <div>
@@ -16,6 +17,26 @@ const My404 = () => {
 }
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      logged: false,
+      username: ''
+    }
+  }
+
+  login = (username) => {
+    console.log('login function working')
+
+    this.setSate({
+      username: username,
+      logged: true
+    });
+  }
+
+  // set logged -- some function passed down in props
+
+
   render() {
     return (
       <div className="App">
@@ -26,9 +47,13 @@ class App extends Component {
         </p>
         <main>
           <Switch>
-            <Route exact path="/" component={ Login }/>
+            <Route exact path="/login" component={ Login }/>
+            <Route exact path="/" component={ MainContainer }/>
+            <Route exact path="/register" component={ CreateUser }/>
+
             <Route component={ My404 }/>
           </Switch>
+          <RestaurantContainer />
         </main>
       </div>
     );

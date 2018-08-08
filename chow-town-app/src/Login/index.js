@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 
 class Login extends Component {
@@ -24,7 +25,7 @@ class Login extends Component {
       const parsedResponse = await loginResponse.json();
 
       if(parsedResponse.data === 'login successful'){
-        this.props.history.push('/reviews');
+        this.props.history.push('/mov');
       }
     } catch (err){
       console.log(err, '-login index---->>>>>error inside handleSubmit<<<<-------')
@@ -32,7 +33,7 @@ class Login extends Component {
   }
 
   handleChange = (e) => {
-    this.state({[e.target.name]: e.target.value});
+    this.setState({[e.target.name]: e.target.value});
   }
   render(){
     return(
