@@ -25,7 +25,7 @@ class Login extends Component {
       const parsedResponse = await loginResponse.json();
 
       if(parsedResponse.data === 'login successful'){
-        this.props.history.push('/mov');
+        this.props.history.push('/username');
       }
     } catch (err){
       console.log(err, '-login index---->>>>>error inside handleSubmit<<<<-------')

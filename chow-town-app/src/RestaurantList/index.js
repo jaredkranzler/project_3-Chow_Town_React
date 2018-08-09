@@ -2,14 +2,16 @@ import React from 'react';
 
 
 const RestaurantList = (props) => {
-  console.log(RestaurantList, "this is RestaurantList========")
   const restaurantList = props.restaurants.map((restaurant, i) => {
+      console.log(props, "this is RestaurantList========")
+
     return(
-      <li key={i}>{restaurant.restaurants.restaurant}</li> 
+      <li key={i}></li> 
     );
   })
 
   return (
+
     <div>
       <h4>restaurants:</h4>
       <ul>

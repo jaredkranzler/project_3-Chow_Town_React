@@ -7,6 +7,8 @@ import Header from './Header';
 import MainContainer from './MainContainer';
 import RestaurantContainer from './RestaurantContainer';
 import CreateUser from './CreateUser'
+import Search from './Search'
+
 const My404 = () => {
   return(
     <div>
@@ -22,6 +24,7 @@ class App extends Component {
     this.state = {
       logged: false,
       username: ''
+
     }
   }
 
@@ -50,10 +53,9 @@ class App extends Component {
             <Route exact path="/login" component={ Login }/>
             <Route exact path="/" component={ MainContainer }/>
             <Route exact path="/register" component={ CreateUser }/>
-
             <Route component={ My404 }/>
           </Switch>
-          <RestaurantContainer />
+          <RestaurantContainer searchChange={this.searchChange} />
         </main>
       </div>
     );
