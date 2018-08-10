@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-
+const FETCH_URL = 'http://localhost:9000'
 class RestaurantMap extends Component{
   // Create state that stores the restaurants as an array
   constructor(){
@@ -13,7 +13,7 @@ class RestaurantMap extends Component{
   findRestaurants = async (evt) => {
     try{
 
-      const foundRestaurants = await fetch('https://chow-town-back.herokuapp.com/searh');
+      const foundRestaurants = await fetch(FETCH_URL + '/search');
       this.setState({restaurants: foundRestaurants});
       // console.log(this.state, ' this is this.state in RestaurantMap and the findRestaurants function');
       return this.state;

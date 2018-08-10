@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Reviews from '../Reviews';
 import CreateReview from '../CreateReview';
 import EditReview from '../EditReview';
+const FETCH_URL = 'http://localhost:9000'
 class MainContainer extends Component {
   constructor(){
     super();
@@ -28,7 +29,7 @@ class MainContainer extends Component {
 
   getReviews = async () =>{
     try{
-      const reviews = await fetch('https://chow-town-back.herokuapp.com/review');
+      const reviews = await fetch(FETCH_URL +'/review');
       const parsedReviews = reviews.json();
       return parsedReviews
     }catch(err){
@@ -40,7 +41,7 @@ class MainContainer extends Component {
     console.log(review, "this is addreview in MainContainer")
     e.preventDefault();
     try{
-      const creatReview = await fetch('https://chow-town-back.herokuapp.com/reviews', {
+      const creatReview = await fetch(FETCH_URL +'/reviews', {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(review),
@@ -59,7 +60,7 @@ class MainContainer extends Component {
     e.preventDefault();
     console.log('deletereview function called')
     try{
-      const deleteReview = await fetch('https://chow-town-back.herokuapp.com/reviews' + id, {
+      const deleteReview = await fetch(FETCH_URL +'/reviews' + id, {
         method: 'Delete'
       });
       const parsedResponse = await deleteReview.json();
@@ -81,7 +82,7 @@ class MainContainer extends Component {
     e.preventDefault();
 
     try{
-      const editReview = await fetch('https://chow-town-back.herokuapp.com/review' + this.state.editReviewId, {
+      const editReview = await fetch(FETCH_URL +'/review' + this.state.editReviewId, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify(this.state.reviewToEdit),

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from '../Search'
 import RestaurantsList from '../RestaurantsList'
+const FETCH_URL = 'http://localhost:9000'
 class SearchContainer extends Component {
   constructor(){
     super();
@@ -25,7 +26,7 @@ class SearchContainer extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const searchResponse = await fetch("https://chow-town-back.herokuapp.com/search/", {
+      const searchResponse = await fetch(FETCH_URL + "/search/", {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
