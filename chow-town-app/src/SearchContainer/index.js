@@ -32,13 +32,13 @@ class SearchContainer extends Component {
           'Content-Type': 'application/json'
         }
       });
-      console.log(searchResponse, 'this is searchResponse++++++')
+      // console.log(searchResponse, 'this is searchResponse++++++')
       // console.log(this.state.query, 'this.state.restaurants -------------')
       // const query = this.state.query
       const parsedResponse = await searchResponse.json();
-      console.log(parsedResponse, '>>>>>>><<><><><>>>>>searchResponseJSON')
+      console.log(parsedResponse.restaurants, '>>>>>>><<><><><>>>>>searchResponseJSON')
       this.setState({restaurants: [...this.state.restaurants, parsedResponse.restaurants]})
-      console.log(this.state.restaurants, '===================this.state')
+      // console.log(this.state.restaurants, '===================this.state')
       // console.log(query, '----->>> this is the query at SearchContainer')
     }catch (err){
       console.log(err, '----->>> this is the query at SearchContainer')
