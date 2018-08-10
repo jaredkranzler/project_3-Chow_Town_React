@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Reviews from '../Reviews';
 import CreateReview from '../CreateReview';
 import EditReview from '../EditReview';
+const FETCH_URL = 'http://localhost:9000'
 class MainContainer extends Component {
   constructor(){
     super();
@@ -28,7 +29,7 @@ class MainContainer extends Component {
 
   getReviews = async () =>{
     try{
-      const reviews = await fetch('http://localhost:9000/review');
+      const reviews = await fetch(FETCH_URL +'/review');
       const parsedReviews = reviews.json();
       return parsedReviews
     }catch(err){
@@ -40,7 +41,7 @@ class MainContainer extends Component {
     console.log(review, "this is addreview in MainContainer")
     e.preventDefault();
     try{
-      const creatReview = await fetch('http://localhost:9000/reviews', {
+      const creatReview = await fetch(FETCH_URL +'/reviews', {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(review),
@@ -59,7 +60,7 @@ class MainContainer extends Component {
     e.preventDefault();
     console.log('deletereview function called')
     try{
-      const deleteReview = await fetch('http://localhost:9000/reviews' + id, {
+      const deleteReview = await fetch(FETCH_URL +'/reviews' + id, {
         method: 'Delete'
       });
       const parsedResponse = await deleteReview.json();
@@ -81,7 +82,7 @@ class MainContainer extends Component {
     e.preventDefault();
 
     try{
-      const editReview = await fetch('http://localhost:9000/review' + this.state.editReviewId, {
+      const editReview = await fetch(FETCH_URL +'/review' + this.state.editReviewId, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify(this.state.reviewToEdit),
@@ -125,7 +126,7 @@ class MainContainer extends Component {
       <CreateReview addReview={this.addReview} />
       {this.state.showEdit ? <editReview closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} reviewToEdit={this.state.reviewToEdit} /> : null}
       </div>
-      
+
     )
   }
 }

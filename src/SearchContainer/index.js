@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Search from '../Search'
 import RestaurantsList from '../RestaurantsList'
+const FETCH_URL = 'http://localhost:9000'
 class SearchContainer extends Component {
   constructor(){
     super();
@@ -26,10 +27,7 @@ class SearchContainer extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      // console.log(this.state, '-----> HERE ARE this.state')
-      console.log(this.state, '-----> HERE ARE this.state')
-
-      const searchResponse = await fetch("http://localhost:9000/search/", {
+      const searchResponse = await fetch(FETCH_URL + "/search/", {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -62,4 +60,3 @@ class SearchContainer extends Component {
 
 
 export default SearchContainer;
-
