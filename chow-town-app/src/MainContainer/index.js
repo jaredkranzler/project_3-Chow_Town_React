@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Reviews from '../Reviews';
 import CreateReview from '../CreateReview';
 import EditReview from '../EditReview';
-import RestaurantContainer from '../RestaurantContainer'
 class MainContainer extends Component {
   constructor(){
     super();
