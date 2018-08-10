@@ -5,7 +5,7 @@ const Search = (props) => {
   return(
     <div>
       <form onSubmit={props.handleSubmit}>
-        <input type="text" name="city" onChange={props.handleChange} value={props.query} placeholder="Search" />
+        <input type="search" name="city" onChange={props.handleChange} value={props.city} placeholder="Search" />
 
         <input type="submit" value="submit" />
       </form>
