@@ -28,7 +28,7 @@ class MainContainer extends Component {
 
   getReviews = async () =>{
     try{
-      const reviews = await fetch('http://localhost:9000/review');
+      const reviews = await fetch('https://chow-town-back.herokuapp.com/review');
       const parsedReviews = reviews.json();
       return parsedReviews
     }catch(err){
@@ -40,7 +40,7 @@ class MainContainer extends Component {
     console.log(review, "this is addreview in MainContainer")
     e.preventDefault();
     try{
-      const creatReview = await fetch('http://localhost:9000/reviews', {
+      const creatReview = await fetch('https://chow-town-back.herokuapp.com/reviews', {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(review),
@@ -59,7 +59,7 @@ class MainContainer extends Component {
     e.preventDefault();
     console.log('deletereview function called')
     try{
-      const deleteReview = await fetch('http://localhost:9000/reviews' + id, {
+      const deleteReview = await fetch('https://chow-town-back.herokuapp.com/reviews' + id, {
         method: 'Delete'
       });
       const parsedResponse = await deleteReview.json();
@@ -81,7 +81,7 @@ class MainContainer extends Component {
     e.preventDefault();
 
     try{
-      const editReview = await fetch('http://localhost:9000/review' + this.state.editReviewId, {
+      const editReview = await fetch('https://chow-town-back.herokuapp.com/review' + this.state.editReviewId, {
         method: 'PUT',
         credentials: 'include',
         body: JSON.stringify(this.state.reviewToEdit),
@@ -125,7 +125,7 @@ class MainContainer extends Component {
       <CreateReview addReview={this.addReview} />
       {this.state.showEdit ? <editReview closeAndEdit={this.closeAndEdit} handleFormChange={this.handleFormChange} reviewToEdit={this.state.reviewToEdit} /> : null}
       </div>
-      
+
     )
   }
 }

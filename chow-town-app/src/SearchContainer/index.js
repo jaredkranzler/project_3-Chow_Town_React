@@ -25,7 +25,7 @@ class SearchContainer extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const searchResponse = await fetch("http://localhost:9000/search/", {
+      const searchResponse = await fetch("https://chow-town-back.herokuapp.com/search/", {
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
@@ -61,4 +61,3 @@ class SearchContainer extends Component {
 
 
 export default SearchContainer;
-
