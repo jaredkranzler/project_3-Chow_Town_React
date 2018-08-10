@@ -9,6 +9,8 @@ import RestaurantContainer from './RestaurantContainer';
 import CreateUser from './CreateUser'
 import Search from './Search'
 
+import RestaurantMap from './RestaurantMap'
+
 const My404 = () => {
   return(
     <div>
@@ -56,6 +58,7 @@ class App extends Component {
             <Route component={ My404 }/>
           </Switch>
           <RestaurantContainer searchChange={this.searchChange} />
+          <RestaurantMap/>
         </main>
       </div>
     );
