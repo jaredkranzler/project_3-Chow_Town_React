@@ -11,6 +11,8 @@ import SearchContainer from './SearchContainer'
 import RestaurantsList from './RestaurantsList'
 
 
+import RestaurantMap from './RestaurantMap'
+
 const My404 = () => {
   return(
     <div>
