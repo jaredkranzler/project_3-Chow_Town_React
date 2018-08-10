@@ -1,18 +1,6 @@
-import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-class RestaurantMap extends Component{
-  // Create state that stores the restaurants as an array
-  constructor(){
-    super();
-    this.state = {
-      restaurants: []
-    }
-  }
-  findRestaurants = async (evt) => {
-    try{
 
+<<<<<<< HEAD
       const foundRestaurants = await fetch('http//localhost:9000/searh');
       this.setState({restaurants: foundRestaurants});
       // console.log(this.state, ' this is this.state in RestaurantMap and the findRestaurants function');
@@ -44,3 +32,5 @@ class RestaurantMap extends Component{
 export default GoogleApiWrapper({
   apiKey: ('AIzaSyCoCFcifF1jJDfzgyrb-rMQckpMcmSo12Q')
 })(RestaurantMap)
+=======
+>>>>>>> 580d62f1e99379642e601c991823193dd067b09d

@@ -5,9 +5,11 @@ import { Route, Switch } from 'react-router-dom';
 import Login from './Login';
 import Header from './Header';
 import MainContainer from './MainContainer';
-import RestaurantContainer from './RestaurantContainer';
 import CreateUser from './CreateUser'
-import Search from './Search'
+import request from 'superagent';
+import SearchContainer from './SearchContainer'
+import RestaurantsList from './RestaurantsList'
+
 
 import RestaurantMap from './RestaurantMap'
 
@@ -25,10 +27,14 @@ class App extends Component {
     super();
     this.state = {
       logged: false,
-      username: ''
-
-    }
+      username: '',
+      restaurant: []
+    };
   }
+
+
+
+
 
   login = (username) => {
     console.log('login function working')
@@ -57,8 +63,7 @@ class App extends Component {
             <Route exact path="/register" component={ CreateUser }/>
             <Route component={ My404 }/>
           </Switch>
-          <RestaurantContainer searchChange={this.searchChange} />
-          <RestaurantMap/>
+          <SearchContainer />
         </main>
       </div>
     );
