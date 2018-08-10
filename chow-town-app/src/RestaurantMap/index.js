@@ -29,7 +29,6 @@ class RestaurantMap extends Component{
       <div>
         <Map google={this.props.google} zoom={14}>
 
-          {this.findRestaurants()}
          <Marker onClick={this.onMarkerClick}
                  name={'Current location'} />
 
